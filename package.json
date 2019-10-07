@@ -1,0 +1,19 @@
+{
+  "name": "frontend-interview-takehome",
+  "version": "1.0.0",
+  "description": "Mock JSON server to support Frontend take-home interview.",
+  "author": "GOAT Engineering <dev@goat.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "engines": {
+    "node": "10.15.0"
+  },
+  "engineStrict": true,
+  "scripts": {
+    "start": "json-server api.json --host 0.0.0.0 --port 5000 --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "json-server": "^0.14.2"
+  }
+}
