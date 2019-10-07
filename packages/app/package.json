@@ -9,6 +9,31 @@
     "url": "git+https://github.com/Stupidism/goat-sneakers.git"
   },
   "scripts": {
+    "build": "next build",
+    "start": "next",
+    "serve": "next start",
     "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "next": "^9.0.8",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-use": "^12.2.3",
+    "styled-components": "^4.4.0"
+  },
+  "optionalDependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "styled-components": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.141",
+    "@types/next": "^8.0.6",
+    "@types/node": "^12.7.11",
+    "@types/react": "^16.9.5",
+    "@types/styled-components": "^4.1.19",
+    "babel-plugin-root-import": "^6.4.1",
+    "babel-plugin-styled-components": "^1.10.6",
+    "typescript": "^3.6.3"
   }
 }
