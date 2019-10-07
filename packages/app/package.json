@@ -1,0 +1,14 @@
+{
+  "name": "app",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "stupidism <sunfeng32@qq.com>",
+  "homepage": "https://github.com/Stupidism/goat-sneakers#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stupidism/goat-sneakers.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  }
+}

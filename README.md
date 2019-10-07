@@ -1,3 +1,13 @@
+# Goat Sneakers
+
+## Quick start
+
+`yarn && npm start`
+
+For detailed configurations, please click [app/README.md].
+
+> Below is the original requirements
+
 # Take-Home Exercise
 Thank you for taking the time to complete this coding exercise! 
 

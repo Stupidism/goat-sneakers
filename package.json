@@ -1,19 +1,32 @@
 {
-  "name": "frontend-interview-takehome",
+  "name": "goat-sneakers",
   "version": "1.0.0",
   "description": "Mock JSON server to support Frontend take-home interview.",
   "author": "GOAT Engineering <dev@goat.com>",
   "license": "UNLICENSED",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "engines": {
-    "node": "10.15.0"
+    "node": "^10.15.0"
   },
   "engineStrict": true,
   "scripts": {
-    "start": "json-server api.json --host 0.0.0.0 --port 5000 --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:server": "json-server api.json --host 0.0.0.0 --port 5000 --watch",
+    "start": "(cd packages/app && npm start)",
+    "coverage": "jest --coverage",
+    "unit": "jest"
   },
   "dependencies": {
     "json-server": "^0.14.2"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "jest-styled-components": "^6.3.3",
+    "lerna": "^3.15.0",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "styled-components": "^4.4.0"
   }
 }
