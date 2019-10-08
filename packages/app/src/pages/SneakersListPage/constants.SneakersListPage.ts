@@ -1,6 +1,8 @@
-export const sortOptionKeys : {
+type StringMap = {
   [key: string]: string,
-} = {
+};
+
+export const sortOptionKeys : StringMap = {
   POPULAR: 'POPULAR',
   NEW: 'NEW',
   UPCOMING: 'UPCOMING',
@@ -8,7 +10,7 @@ export const sortOptionKeys : {
   PRICE_HIGH_LOW: 'PRICE_HIGH_LOW',
 };
 
-export const sortOptionDesciptions = {
+export const sortOptionDesciptions : StringMap = {
   POPULAR: 'POPULAR',
   NEW: 'NEW',
   UPCOMING: 'UPCOMING',

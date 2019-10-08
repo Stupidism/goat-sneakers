@@ -14,8 +14,8 @@ const SneakersListPage = () => {
       <div>
         <span>SHOWING {totalCount > 100000 ? '100000+' : totalCount} RESULTS</span>
         
-        SORT BY: {sortBy}
-        <select value={sortBy} onChange={onSortByChange}>
+        <span>SORT BY: {sortOptionDesciptions[sortBy]}</span>
+        <select data-testid="sort-by-select" value={sortBy} onChange={onSortByChange}>
           {_.map(sortOptionDesciptions, (description, key) => (
             <option value={key} key={key}>{description}</option>
           ))}

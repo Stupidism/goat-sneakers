@@ -18,5 +18,6 @@ export type JsonServerParams = {
   _order?: 'asc' | 'desc',
   status?: 'active' | 'inactive',
   release_date_unix_lte?: number,
+  release_date_unix_gte?: number,
   retail_price_cents_ne?: number | 'null',
 }

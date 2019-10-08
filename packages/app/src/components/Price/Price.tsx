@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 const Price = ({ amount, unit } : { amount: number, unit: string }) => (
-  <span>{unit}{amount / 100}</span>
+  <span data-testid="price">{unit}{amount / 100}</span>
 );
 
 Price.defaultProps = {

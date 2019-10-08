@@ -4,7 +4,7 @@
 
 `yarn && npm start`
 
-For detailed configurations, please click [app/README.md].
+For detailed configurations, please click [app/README.md](packages/app/README.md).
 
 > Below is the original requirements
 

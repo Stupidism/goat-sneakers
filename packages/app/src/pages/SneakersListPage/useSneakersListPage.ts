@@ -11,8 +11,8 @@ const createSortParams = () : {
 }  => {
   return {
     [sortOptionKeys.POPULAR]: {},
-    [sortOptionKeys.NEW]: { _sort: 'release_date_unix', _order: 'desc', status: 'active' },
-    [sortOptionKeys.UPCOMING]: { _sort: 'release_date_unix', _order: 'asc', status: 'inactive', release_date_unix_lte: Date.now() },
+    [sortOptionKeys.NEW]: { _sort: 'release_date_unix', _order: 'desc' },
+    [sortOptionKeys.UPCOMING]: { _sort: 'release_date_unix', _order: 'asc', release_date_unix_gte: Date.now() },
     [sortOptionKeys.PRICE_LOW_HIGH]: { _sort: 'retail_price_cents', _order: 'asc', retail_price_cents_ne: 'null' },
     [sortOptionKeys.PRICE_HIGH_LOW]: { _sort: 'retail_price_cents', _order: 'desc', retail_price_cents_ne: 'null' },
   };
@@ -26,7 +26,6 @@ const useSneakersListPage = (): [HookData, Callbacks] => {
     return {
       _limit: 20,
       _start: 0,
-      status: 'active',
       ...sortParams[sortBy],
     };
   }, [sortBy]);
@@ -52,7 +51,6 @@ const useSneakersListPage = (): [HookData, Callbacks] => {
       },
       transformResponse: (responseData) => {
         const newSneakers = JSON.parse(responseData);
-        console.log('transformResponse', responseData);
         return _.concat(data, newSneakers);
       },
     })
