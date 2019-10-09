@@ -10,6 +10,7 @@
   },
   "scripts": {
     "build": "next build",
+    "build:static": "npm run build && next export",
     "start": "next",
     "serve": "next start",
     "test": "jest"

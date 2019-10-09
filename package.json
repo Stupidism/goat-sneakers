@@ -13,6 +13,7 @@
   },
   "engineStrict": true,
   "scripts": {
+    "build": "(cd packages/app && npm run build:static)",
     "start:server": "json-server api.json --host 0.0.0.0 --port 5000 --watch",
     "start": "(cd packages/app && npm start)",
     "test": "lerna run test"
