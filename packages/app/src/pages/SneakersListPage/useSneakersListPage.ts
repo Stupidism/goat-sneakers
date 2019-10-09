@@ -12,7 +12,7 @@ const createSortParams = () : {
   return {
     [sortOptionKeys.POPULAR]: {},
     [sortOptionKeys.NEW]: { _sort: 'release_date_unix', _order: 'desc' },
-    [sortOptionKeys.UPCOMING]: { _sort: 'release_date_unix', _order: 'asc', release_date_unix_gte: Date.now() },
+    [sortOptionKeys.UPCOMING]: { _sort: 'release_date_unix', _order: 'asc', release_date_unix_gte: Math.round(Date.now() / 1000) },
     [sortOptionKeys.PRICE_LOW_HIGH]: { _sort: 'retail_price_cents', _order: 'asc', retail_price_cents_ne: 'null' },
     [sortOptionKeys.PRICE_HIGH_LOW]: { _sort: 'retail_price_cents', _order: 'desc', retail_price_cents_ne: 'null' },
   };
@@ -32,7 +32,6 @@ const useSneakersListPage = (): [HookData, Callbacks] => {
 
   const [{ data, loading, response }, refetch] = useAxios({
     url: '/sneakers',
-    baseURL: 'http://localhost:5000',
     params,
   });
 

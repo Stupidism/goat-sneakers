@@ -75,7 +75,7 @@
       "id": 479524,
       "name": "Air Jordan 4 Retro 'Laser'",
       "retail_price_cents": 20000,
-      "release_date_unix": 1547942399,
+      "release_date_unix": 1571485271,
       "grid_picture_url": "https://image.goat.com/375/attachments/product_template_pictures/images/018/071/547/original/479524_00.png.png"
     },
     {
@@ -95,7 +95,7 @@
     {
       "id": 365514,
       "name": "Travis Scott x Air Jordan 4 Retro 'Cactus Jack'",
-      "retail_price_cents": 22500,
+      "retail_price_cents": null,
       "release_date_unix": 1528588799,
       "grid_picture_url": "https://image.goat.com/375/attachments/product_template_pictures/images/012/478/518/original/365514_00.png.png"
     },
@@ -110,7 +110,7 @@
       "id": 488879,
       "name": "Travis Scott x Air Jordan 1 Retro High OG 'Mocha'",
       "retail_price_cents": 16000,
-      "release_date_unix": 1557619199,
+      "release_date_unix": 1571885271,
       "grid_picture_url": "https://image.goat.com/375/attachments/product_template_pictures/images/018/783/111/original/488879_00.png.png"
     },
     {
@@ -131,7 +131,7 @@
       "id": 485842,
       "name": "Air Jordan 1 Retro High OG 'Crimson Tint'",
       "retail_price_cents": 16000,
-      "release_date_unix": 1555113599,
+      "release_date_unix": 1571571698,
       "grid_picture_url": "https://image.goat.com/375/attachments/product_template_pictures/images/020/249/059/original/485842_00.png.png"
     },
     {
