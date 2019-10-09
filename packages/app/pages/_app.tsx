@@ -4,8 +4,10 @@ import Head from 'next/head';
 import { configure } from 'axios-hooks'
 import LRU from 'lru-cache'
 import Axios from 'axios'
+import { ThemeProvider } from 'styled-components'
 
 import GlobalStyles from '~/styles/GlobalStyles';
+import theme from '~/styles/theme';
 
 class MyApp extends App {
   componentDidMount() {
@@ -38,7 +40,9 @@ class MyApp extends App {
           <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
         </Head>
         <GlobalStyles />
-        <Component {...pageProps} />
+        <ThemeProvider theme={theme}>
+          <Component {...pageProps} />
+        </ThemeProvider>
       </>
     );
   }
