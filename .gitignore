@@ -12,8 +12,9 @@ node_modules
 # development
 .next
 
-# production
+# build
 build
+out
 
 # misc
 .DS_Store
