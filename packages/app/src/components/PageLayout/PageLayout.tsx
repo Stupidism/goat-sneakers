@@ -1,11 +1,22 @@
 import styled from 'styled-components';
+import { system } from 'styled-system';
 
-const PageLayout = styled.div`
-  max-width: calc(100vw - 200px);
+interface PageLayoutProps {
+  readonly mx: Array<number>;
+};
+
+const PageLayout = styled.div<PageLayoutProps>`
   margin: 0 auto;
+
+  ${system({
+    mx: {
+      property: 'maxWidth',
+      transform: (mx) => `calc(100vw - ${mx}px)`,
+    }
+  })}
 `;
 
-const AppBar = styled.div`
+const PlaceHolder = styled.div`
   height: 80px;
   line-height: 80px;
 
@@ -14,11 +25,13 @@ const AppBar = styled.div`
 `;
 
 export default ({ children } : { children: any }) => (
-  <PageLayout>
-    <AppBar>GOAT APP HEADER PLACEHOLDER</AppBar>
+  <PageLayout mx={[0,0,200]}>
+    <PlaceHolder>GOAT APP HEADER PLACEHOLDER</PlaceHolder>
     <div>
       {children}
     </div>
+
+    <PlaceHolder>GOAT APP FOOTER PLACEHOLDER</PlaceHolder>
   </PageLayout>
 );
 

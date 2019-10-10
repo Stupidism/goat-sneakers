@@ -1,11 +1,25 @@
 import * as React from 'react';
 import _ from 'lodash';
-import { render, fireEvent, waitForElement } from '@testing-library/react';
+import { render, waitForElement, fireEvent } from '@testing-library/react';
 import * as routerExports from 'next/router';
 import MockAdapter from 'axios-mock-adapter';
-import axios from 'axios';
+import { ThemeProvider } from 'styled-components';
+import { configure } from 'axios-hooks'
+
+import theme from '~/styles/theme';
+import createAxios from '~/api/createAxios';
 
 import SneakersListPage from '../SneakersListPage';
+
+const axios = createAxios();
+
+configure({ axios });
+
+const ThemeWrapper = ({ children }: {children: any}) => (
+  <ThemeProvider theme={theme}>
+    {children}
+  </ThemeProvider>
+)
 
 let mockRouter: {
   push: Function,
@@ -63,21 +77,21 @@ let mockHeaders = defaultMockHeaders;
 
 axiosMock.onGet('/sneakers', {
   params: {
-    _limit: 20,
+    _limit: 24,
     _start: 0,
   }
 }).reply(() => [200, JSON.stringify(mockShoes), mockHeaders]);
 
 axiosMock.onGet('/sneakers', {
   params: {
-    _limit: 20,
+    _limit: 24,
     _start: 3,
   }
 }).reply(200, JSON.stringify(mockNextPageShoes), defaultMockHeaders);
 
 axiosMock.onGet('/sneakers', {
   params: {
-    _limit: 20,
+    _limit: 24,
     _start: 0,
     _sort: 'retail_price_cents', 
     _order: 'asc', 
@@ -94,10 +108,10 @@ describe('<SneakersListPage/>', () => {
   });
 
   it('should show all the shoes returned', async () => {
-    const { getByText, getAllByTestId } = render(<SneakersListPage />);
+    const { getByText, getAllByTestId } = render(<SneakersListPage />, { wrapper: ThemeWrapper });
 
-    expect(getByText('SHOP ALL')).not.toBeNull();
-    expect(getByText('SORT BY: POPULAR')).not.toBeNull();
+    expect(getByText('Shop All')).not.toBeNull();
+    expect(getByText('POPULAR')).not.toBeNull();
     expect(getByText('SHOWING 0 RESULTS')).not.toBeNull();
     await waitForElement(() => getByText("Air Jordan 1 Mid 'Multicolor Swoosh Black'"));
     expect(getByText('$110')).not.toBeNull();
@@ -111,14 +125,14 @@ describe('<SneakersListPage/>', () => {
 
   it('should show 100000+ results if count is larger than 100000', async () => {
     mockHeaders['x-total-count'] = 100001;
-    const { getByText } = render(<SneakersListPage />);
+    const { getByText } = render(<SneakersListPage />, { wrapper: ThemeWrapper });
 
     expect(getByText('SHOWING 0 RESULTS')).not.toBeNull();
     await waitForElement(() => getByText('SHOWING 100000+ RESULTS'));
   });
 
   it('should load more data after "SEE MORE" is clicked', async () => {
-    const { getByText, queryByText, getAllByTestId } = render(<SneakersListPage />);
+    const { getByText, queryByText, getAllByTestId } = render(<SneakersListPage />, { wrapper: ThemeWrapper });
     await waitForElement(() => getByText('SEE MORE'));
     fireEvent.click(getByText('SEE MORE'));
     expect(getByText('Loading...')).not.toBeNull();
@@ -129,7 +143,7 @@ describe('<SneakersListPage/>', () => {
   });
 
   it('should change display order after sortBy changed', async () => {
-    const { getByText, getByTestId, getAllByTestId, rerender } = render(<SneakersListPage />);
+    const { getByText, getByTestId, getAllByTestId, rerender } = render(<SneakersListPage />, { wrapper: ThemeWrapper });
     await waitForElement(() => getByText("Air Jordan 1 Mid 'Multicolor Swoosh Black'"));
     
     fireEvent.change(getByTestId('sort-by-select'), { target: { value: 'PRICE_LOW_HIGH' } })
@@ -140,7 +154,7 @@ describe('<SneakersListPage/>', () => {
       sortBy: 'PRICE_LOW_HIGH',
     };
 
-    rerender(<SneakersListPage />);
+    rerender(<SneakersListPage />, { wrapper: ThemeWrapper });
     expect(getByText('Loading...')).not.toBeNull();
     await waitForElement(() => getByText('SEE MORE'));
 

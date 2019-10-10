@@ -24,7 +24,7 @@ const useSneakersListPage = (): [HookData, Callbacks] => {
   const sortBy = _.get(router, 'query.sortBy', sortOptionKeys.POPULAR);
   const params = useMemo((): JsonServerParams => {
     return {
-      _limit: 20,
+      _limit: 24,
       _start: 0,
       ...sortParams[sortBy],
     };
